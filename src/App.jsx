@@ -33,8 +33,29 @@ export default function App() {
   //nombre, texto, fecha, responder, likes, editar
   return (
     <div>
-      <section>
+      <section className="boxComment">
         <form action="submit" onSubmit={(e) => handleSubmit(e)}>
+          <input
+            type="text"
+            placeholder="Ingresa tu nombre"
+            name="name"
+            onChange={(e) => {
+              setNewComment({ ...newComment, name: e.target.value });
+            }}
+          />
+
+          <textarea
+            placeholder="Agrega tu comentario"
+            autoCapitalize="sentences"
+            spellCheck="true"
+            wrap="hard"
+            name="comment"
+            onChange={(e) => {
+              setNewComment({ ...newComment, comment: e.target.value });
+            }}
+            cols="70"
+            rows="4"
+          ></textarea>
           <div>
             <span>⭐</span>
             <span>⭐</span>
@@ -42,25 +63,7 @@ export default function App() {
             <span>⭐</span>
             <span>⭐</span>
           </div>
-          <input
-            type="text"
-            placeholder="Nombre"
-            name="name"
-            onChange={(e) => {
-              setNewComment({ ...newComment, name: e.target.value });
-            }}
-          />
-          <textarea
-            name="comment"
-            id="comment"
-            onChange={(e) => {
-              setNewComment({ ...newComment, comment: e.target.value });
-            }}
-            cols="30"
-            rows="10"
-          ></textarea>
-
-          <button type="submit">Publicar</button>
+          <button type="submit"></button>
         </form>
       </section>
 
